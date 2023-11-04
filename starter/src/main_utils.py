@@ -1,8 +1,12 @@
 
 
 import yaml
+import logging  
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.compose import ColumnTransformer
+from sklearn.metrics import f1_score, precision_score, recall_score, classification_report
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 
 schema_file_path = 'config/schema.yaml'
 
@@ -28,6 +32,15 @@ def process_data(
         X_train = ct.fit_transform(X_train)
 
     return X_train, y_train, ct, lc
+
+def get_classification_metrics(model, X_test, y_test):
+    y_pred = model.predict(X_test)
+    class_report = classification_report(y_test, y_pred)
+    logging.info(class_report)  
+    F1_score = f1_score(y_test, y_pred) 
+    precision = precision_score(y_test, y_pred)
+    recall = recall_score(y_test, y_pred)
+    return F1_score, precision, recall
 
 
 
