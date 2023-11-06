@@ -1,7 +1,11 @@
 from sklearn.metrics import fbeta_score, precision_score, recall_score
+import logging
+from sklearn.ensemble import RandomForestClassifier
 
 
-# Optional: implement hyperparameter tuning.
+logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
+
+
 def train_model(X_train, y_train):
     """
     Trains a machine learning model and returns it.
@@ -18,7 +22,12 @@ def train_model(X_train, y_train):
         Trained machine learning model.
     """
 
-    pass
+    # Train and save a model.
+    logging.info("Training the model...")
+    rf = RandomForestClassifier()
+    rf.fit(X_train, y_train)
+
+    return rf
 
 
 def compute_model_metrics(y, preds):
@@ -37,9 +46,12 @@ def compute_model_metrics(y, preds):
     recall : float
     fbeta : float
     """
+    logging.info("Evaluating the model...")
     fbeta = fbeta_score(y, preds, beta=1, zero_division=1)
     precision = precision_score(y, preds, zero_division=1)
     recall = recall_score(y, preds, zero_division=1)
+    logging.info(
+        f"F1 score: {fbeta}, Precision: {precision}, Recall: {recall}")
     return precision, recall, fbeta
 
 
@@ -48,7 +60,7 @@ def inference(model, X):
 
     Inputs
     ------
-    model : ???
+    model : saved model format
         Trained machine learning model.
     X : np.array
         Data used for prediction.
@@ -57,4 +69,4 @@ def inference(model, X):
     preds : np.array
         Predictions from the model.
     """
-    pass
+    return model.predict(X)

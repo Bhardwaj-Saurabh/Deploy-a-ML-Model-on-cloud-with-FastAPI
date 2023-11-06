@@ -1,6 +1,6 @@
 
 
-cat_features:
+categorical_columns:
   - workclass
   - education
   - marital-status
