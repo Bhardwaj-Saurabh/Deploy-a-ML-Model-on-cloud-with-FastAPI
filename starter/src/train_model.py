@@ -10,7 +10,6 @@ from ml.basic_cleaning import data_cleaning
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 
-
 # data directory
 data_dir = 'data/census.csv'
 output_file = 'data/clean_census.csv'
