@@ -10,7 +10,7 @@ Hyper-parameters: Default
 Model predicts if the income is more than $50K per year or not.
 
 ## Training Data
-The dataset used is [Census data]('https://archive.ics.uci.edu/ml/datasets/census+income').
+The dataset used is [Census_data]('https://archive.ics.uci.edu/ml/datasets/census+income').
 
 ## Evaluation Data
 Steps taken: Data Preprocessing and 80/20 train and test split.
