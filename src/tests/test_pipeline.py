@@ -13,6 +13,7 @@ from sklearn.ensemble import RandomForestClassifier
 DATA_DIR = 'data/clean_census.csv'
 MODEL_DIR = 'model/model.pkl'
 
+# get schema file path
 schema_file_path = 'config/schema.yaml'
 
 with open(schema_file_path, 'r') as fm:
