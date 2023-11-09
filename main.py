@@ -1,7 +1,7 @@
 # Put the code for your API here.
 
 from fastapi import FastAPI
-from typing import Literal
+from typing_extensions import Literal  # Will work on Python 3.7
 from pandas import DataFrame
 import numpy as np
 import joblib
