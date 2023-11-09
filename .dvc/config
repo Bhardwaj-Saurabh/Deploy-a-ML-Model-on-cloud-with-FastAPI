@@ -1,6 +1,0 @@
-[core]
-    remote = localremote
-['remote "localremote"']
-    url = ../data
-['remote "driveremote"']
-    url = gdrive://1D6c9oCbZ4zTXYtkOjr3tenAVH0tsS21k

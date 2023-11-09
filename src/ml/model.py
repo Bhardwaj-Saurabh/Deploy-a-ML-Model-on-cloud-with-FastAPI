@@ -24,7 +24,8 @@ def train_model(X_train, y_train):
 
     # Train and save a model.
     logging.info("Training the model...")
-    rf = RandomForestClassifier()
+    rf = RandomForestClassifier(n_estimators=150,
+                                min_samples_leaf=3)
     rf.fit(X_train, y_train)
 
     return rf

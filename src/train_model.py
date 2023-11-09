@@ -30,7 +30,7 @@ target = data_config['target'][0]
 clean_data = data_cleaning(data, output_file)
 
 logging.info("Create Train and Test dataset split...")
-train, test = train_test_split(clean_data, test_size=0.2)
+train, test = train_test_split(clean_data, test_size=0.2, random_state=42)
 
 X_train, y_train, encoder, lb = process_data(
     train, categorical_features=cat_features,
@@ -53,6 +53,7 @@ model = train_model(X_train, y_train)
 logging.info("Getting Scores on test dataset...")
 y_pred = inference(model, X_test)
 precision, recall, fbeta = compute_model_metrics(y_test, y_pred)
+
 
 logging.info(f"Precision: {precision: .2f} \
              Recall: {recall: .2f} \

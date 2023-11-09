@@ -130,6 +130,7 @@ async def prediction(data: ModelInputData):
                        "capital_loss",
                        "hours-per-week",
                        "native-country"])
+
     X, _, _, _ = process_data(
         df, categorical_features=cat_features, encoder=encoder,
         lb=lb, training=False)
