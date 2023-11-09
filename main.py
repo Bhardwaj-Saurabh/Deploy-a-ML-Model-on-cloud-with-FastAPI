@@ -1,15 +1,15 @@
 # Put the code for your API here.
 
 from fastapi import FastAPI
+from typing import Literal
 from pandas import DataFrame
 import numpy as np
 import joblib
 import uvicorn
 import yaml
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 from src.ml.model import inference
 from src.ml.data import process_data
-
 
 # initiate fast API
 app = FastAPI()
@@ -31,22 +31,60 @@ target = data_config['target'][0]
 
 
 class ModelInputData(BaseModel):
-    age: int = Field(example="39")
-    workclass: str = Field(example="State-gov")
-    fnlgt: int = Field(example="77516")
-    education: str = Field(example="Bachelors")
-    education_num: int = Field(alias="education-num", example="13")
-    marital_status: str = Field(
-        alias="marital-status", example="Never-married")
-    occupation: str = Field(example="Adm-clerical")
-    relationship: str = Field(example="Not-in-family")
-    race: str = Field(example="White")
-    sex: str = Field(example="Male")
-    capital_gain: int = Field(alias="capital-gain", example="2174")
-    capital_loss: int = Field(alias="capital-loss", example="0")
-    hours_per_week: int = Field(alias="hours-per-week", example="40")
-    native_country: str = Field(
-        alias="native-country", example="United-States")
+    age: int
+    workclass: Literal['State-gov',
+                       'Self-emp-not-inc',
+                       'Private',
+                       'Federal-gov',
+                       'Local-gov',
+                       'Self-emp-inc',
+                       'Without-pay']
+    fnlgt: int
+    education: Literal[
+        'Bachelors', 'HS-grad', '11th', 'Masters', '9th',
+        'Some-college',
+        'Assoc-acdm', '7th-8th', 'Doctorate', 'Assoc-voc', 'Prof-school',
+        '5th-6th', '10th', 'Preschool', '12th', '1st-4th']
+    education_num: int
+    marital_status: Literal["Never-married",
+                            "Married-civ-spouse",
+                            "Divorced",
+                            "Married-spouse-absent",
+                            "Separated",
+                            "Married-AF-spouse",
+                            "Widowed"]
+    occupation: Literal["Tech-support",
+                        "Craft-repair",
+                        "Other-service",
+                        "Sales",
+                        "Exec-managerial",
+                        "Prof-specialty",
+                        "Handlers-cleaners",
+                        "Machine-op-inspct",
+                        "Adm-clerical",
+                        "Farming-fishing",
+                        "Transport-moving",
+                        "Priv-house-serv",
+                        "Protective-serv",
+                        "Armed-Forces"]
+    relationship: Literal["Wife", "Own-child", "Husband",
+                          "Not-in-family", "Other-relative", "Unmarried"]
+    race: Literal["White", "Asian-Pac-Islander",
+                  "Amer-Indian-Eskimo", "Other", "Black"]
+    sex: Literal["Female", "Male"]
+    capital_gain: int
+    capital_loss: int
+    hours_per_week: int
+    native_country: Literal[
+        'United-States', 'Cuba', 'Jamaica', 'India', 'Mexico',
+        'Puerto-Rico', 'Honduras', 'England', 'Canada', 'Germany', 'Iran',
+        'Philippines', 'Poland', 'Columbia', 'Cambodia', 'Thailand',
+        'Ecuador', 'Laos', 'Taiwan', 'Haiti', 'Portugal',
+        'Dominican-Republic', 'El-Salvador', 'France', 'Guatemala',
+        'Italy', 'China', 'South', 'Japan', 'Yugoslavia', 'Peru',
+        'Outlying-US(Guam-USVI-etc)', 'Scotland', 'Trinadad&Tobago',
+        'Greece', 'Nicaragua', 'Vietnam', 'Hong', 'Ireland', 'Hungary',
+        'Holand-Netherlands']
 
 # define root path
 
