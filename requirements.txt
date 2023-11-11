@@ -1,10 +1,10 @@
+
+PyYAML
 numpy
 pandas
-scikit-learn==1.0.2
+scikit-learn
 pytest
 requests
 fastapi==0.63.0
 uvicorn
 gunicorn
-httpx
-PyYAML
