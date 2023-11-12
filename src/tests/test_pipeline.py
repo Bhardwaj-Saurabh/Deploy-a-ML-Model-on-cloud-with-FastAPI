@@ -2,11 +2,12 @@
 This module tests unit for the ML model
 """
 
+from pandas.core.frame import DataFrame
 import yaml
 import pandas as pd
 import pytest
 import joblib
-from src.ml.data import process_data
+from ml.data import process_data
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from fastapi.testclient import TestClient
@@ -35,7 +36,7 @@ def data():
     return pd.read_csv(DATA_DIR)
 
 
-def test_load_data(data):
+def test_load_data(data: DataFrame):
     """ 
     Check data is not empty
     """
@@ -54,7 +55,7 @@ def test_model():
     assert isinstance(model, RandomForestClassifier)
 
 
-def test_process_data(data):
+def test_process_data(data: DataFrame):
     """ 
     Test the data split 
     """

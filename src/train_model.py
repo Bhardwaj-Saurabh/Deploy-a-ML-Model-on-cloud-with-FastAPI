@@ -3,10 +3,10 @@ import logging
 import pandas as pd
 import yaml
 import joblib
-from source.src.ml.data import process_data
+from ml.data import process_data
 from sklearn.model_selection import train_test_split
-from source.src.ml.model import train_model, compute_model_metrics, inference
-from source.src.ml.basic_cleaning import data_cleaning
+from ml.model import train_model, compute_model_metrics, inference
+from ml.basic_cleaning import data_cleaning
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 

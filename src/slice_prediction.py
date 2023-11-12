@@ -5,8 +5,8 @@ import logging
 import joblib
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from src.ml.data import process_data
-from src.ml.model import compute_model_metrics
+from ml.data import process_data
+from ml.model import compute_model_metrics
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 
