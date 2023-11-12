@@ -69,3 +69,6 @@ Deployed App can be access [here](https://census-prediction-deploye.onrender.com
 - FAST API Preview
 <img src="screenshots/api_deploye.png">
 
+- FAST API Query Result
+<img src="screenshots/query_result.png">
+
