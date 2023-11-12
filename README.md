@@ -62,5 +62,10 @@ Deployed App can be access [here](https://census-prediction-deploye.onrender.com
 ## API Deployment to a Render Cloud Platform
 - Create a Free Cloud Application Platform account, such as Render.
 
+- Render Deployement 
+<img src="screenshots/render_deploye.png">
+<img src="screenshots/render_deploye2.png">
+
+- FAST API Preview
 <img src="screenshots/api_deploye.png">
 
