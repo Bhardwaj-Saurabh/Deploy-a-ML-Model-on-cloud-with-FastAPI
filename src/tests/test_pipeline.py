@@ -1,7 +1,7 @@
 """
 This module tests unit for the ML model
 """
-
+import os
 from pandas.core.frame import DataFrame
 import yaml
 import pandas as pd
@@ -14,7 +14,7 @@ from fastapi.testclient import TestClient
 
 from main import app
 
-DATA_DIR = 'data/clean_census.csv'
+DATA_DIR = os.path.join('data', 'clean_census.csv')
 MODEL_DIR = 'model/model.pkl'
 
 # get schema file path
