@@ -1,6 +1,6 @@
 pip==23.3.1  # This was the latest as of my last update
 PyYAML  # Latest stable version as of April 2023
-pandas==1.4.1  # A recent stable release
+pandas==1.3.5  # A recent stable release
 scikit-learn==1.3.1  # Latest minor update for 1.2 series
 pytest==7.1.2  # Latest release as of April 2023
 requests==2.27.1  # Latest stable release
